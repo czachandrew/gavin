@@ -43,7 +43,7 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        <li><a href="{{url('/possible')}}">Possible Matches</a></li>
+                        <li><a href="{{url('/possible')}}">Possible Match</a></li>
                         <li><a href="{{url('/search/facilities')}}">Search Facilities</a></li>
                     </ul>
 
