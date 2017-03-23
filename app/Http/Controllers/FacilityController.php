@@ -15,7 +15,17 @@ class FacilityController extends Controller
 
     }
 
-    public function create(){
+    public function createForm(){
+    	return view('make');
+    }
+
+    public function create(Request $request){
+    	$value = $request->all(); 
+
+    	Facility::create($value); 
+
+    	return redirect()->action('PagesController@home');
+
 
     }
 

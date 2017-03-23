@@ -19,6 +19,10 @@ Route::get('/home', 'PagesController@home');
 
 Route::get('/', 'PagesController@home');
 
+Route::get('/new/facility', 'FacilityController@createForm');
+
+Route::post('/new/facility', 'FacilityController@create');
+
 Route::get('/possible', 'PagesController@possible');
 
 Route::get('/facility/{id}/{call?}', 'PagesController@view'); 
