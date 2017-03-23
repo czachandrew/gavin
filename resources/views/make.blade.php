@@ -9,7 +9,7 @@
 		<div class="panel-body">
 			<form class="form" action="" method="POST">
 				<div class="form-group">
-					<label for="name">Facility Name</label>
+					<label for="name">Facility Name *</label>
 					<input type="text" class="form-control" name="name" required /> 
 				</div>
 				<div class="form-group">
@@ -17,20 +17,20 @@
 					<input type="text" class="form-control" name="link" />
 				</div>
 				<div class="form-group">
-					<label for="phone">Phone</label>
+					<label for="phone">Phone *</label>
 					<input type="text" class="form-control" name="phone" />
 				</div>
 				<div class="form-group">
-					<label for="address">Address</label>
+					<label for="address">Address *</label>
 					<input type="text" class="form-control" name="address" /> 
 
 				</div>
 				<div class="form-group">
-					<label for="city">City</label>
+					<label for="city">City *</label>
 					<input type="text" class="form-control" name="city" />
 				</div>
 				<div class="form-group">
-					<label for="state">State Abbreviation</label>
+					<label for="state">State Abbreviation *</label>
 					<input type="text" class="form-control" name="state" /> 
 				</div>
 				<div class="form-group">

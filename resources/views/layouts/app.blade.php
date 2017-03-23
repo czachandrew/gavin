@@ -45,6 +45,7 @@
                     <ul class="nav navbar-nav">
                         <li><a href="{{url('/possible')}}">Possible Match</a></li>
                         <li><a href="{{url('/search/facilities')}}">Search Facilities</a></li>
+                        <li><a href="{{url('/new/facility')}}">Add Facility</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
