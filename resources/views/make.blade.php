@@ -7,6 +7,17 @@
 		<h3>Add a Facility</h3>
 		</div>
 		<div class="panel-body">
+		<form class="form" action="/add/facilities" accept-charset="UTF-8" method="POST">
+                    <div class="form-group">
+                        <label for="blob"> Past a chunk of text with complete address records</label>
+                        <textarea class="form-control" id="blob" name="blob" rows="4"></textarea>
+                        {{csrf_field()}}
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-default btn-success">Parse</button>
+                    </div>
+
+                    </form>
 			<form class="form" action="" method="POST">
 				<div class="form-group">
 					<label for="name">Facility Name *</label>

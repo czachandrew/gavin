@@ -15,6 +15,7 @@ require('./bootstrap');
 
 Vue.component('example', require('./components/Example.vue'));
 Vue.component('modal', require('./components/Modal.vue'));
+Vue.component('notepad', require('./components/Notepad.vue'));
 
 const app = new Vue({
     el: '#app',

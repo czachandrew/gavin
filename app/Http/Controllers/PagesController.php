@@ -7,6 +7,7 @@ use App\Facility;
 use App\Note;
 use App\Contact; 
 use App\Call;
+use App\Notepad;
 use Auth; 
 use Log;
 
@@ -20,8 +21,12 @@ class PagesController extends Controller
     public function home(){
     	//get all uncalled facilities 
     	$facilities = Facility::where('possible','!=','no')->with('calls')->get();
+        $notepad = Notepad::with('lastupdate')->first(); 
+        if($notepad == null){
+            $notepad = Notepad::create();
+        }
 
-    	return view('home', compact('facilities'));
+    	return view('home', compact('facilities','notepad'));
     	//get all contacted not called facilities 
     }
 
