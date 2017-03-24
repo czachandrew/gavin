@@ -12254,9 +12254,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		update: function update() {
 			//use content to update the notepad
 			this.status = 'Saving';
+			var self = this;
 			axios.post('/notepad/update/' + this.id, { content: this.formContent }).then(function (response) {
 				console.log(response);
-				this.status = 'Saved';
+				self.status = 'Saved';
 			});
 			//console.log(this.formContent); 
 		}
