@@ -33,7 +33,10 @@ class PagesController extends Controller
     public function possible(){
         $facilities = Facility::where('possible', 'yes')->orWhere('possible','maybe')->get();
 
-        return view('home', compact('facilities'));
+        $notepad = Notepad::with('lastupdate')->first();
+
+
+        return view('home', compact('facilities','notepad'));
     }
 
     public function markIt($id, Request $request){
