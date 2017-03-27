@@ -8,6 +8,7 @@ use App\Note;
 use App\Contact; 
 use App\Call;
 use App\Notepad;
+use App\Activity;
 use Auth; 
 use Log;
 
@@ -22,21 +23,24 @@ class PagesController extends Controller
     	//get all uncalled facilities 
     	$facilities = Facility::where('possible','!=','no')->with('calls')->get();
         $notepad = Notepad::with('lastupdate')->first(); 
+        $user = Auth::user();
         if($notepad == null){
             $notepad = Notepad::create();
         }
 
-    	return view('home', compact('facilities','notepad'));
+    	return view('home', compact('facilities','notepad','user'));
     	//get all contacted not called facilities 
     }
 
     public function possible(){
         $facilities = Facility::where('possible', 'yes')->orWhere('possible','maybe')->get();
 
+        $user = Auth::user();
+
         $notepad = Notepad::with('lastupdate')->first();
 
 
-        return view('home', compact('facilities','notepad'));
+        return view('home', compact('facilities','notepad','user'));
     }
 
     public function markIt($id, Request $request){
@@ -61,6 +65,9 @@ class PagesController extends Controller
     public function view($id, $call = 'no'){
     	$facility = Facility::with('notes','contact')->where('id', $id)->first(); 
 
+        $activities = Activity::with('assigned')->where('facility_id', $id)->where('status', 'open')->get();
+        //$activities = [];
+
     	$user = Auth::user();
 
     	if($call == 'call'){
@@ -81,7 +88,7 @@ class PagesController extends Controller
 
 
 
-    	return view('facility', compact('facility','notes','contact')); 
+    	return view('facility', compact('facility','notes','contact','user','activities')); 
     }
 
     public function addContact($id, Request $request) {

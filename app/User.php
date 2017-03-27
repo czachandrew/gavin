@@ -26,4 +26,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function created_activities(){
+        return $this->hasMany('App\Activity', 'creator_id');
+    }
+
+    public function assigned_activities(){
+        return $this->hasMany('App\Activity', 'assigned_id');
+    }
 }

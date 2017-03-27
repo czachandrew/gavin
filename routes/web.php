@@ -41,6 +41,20 @@ Route::get('/search/facilities', 'SearchController@index');
 
 Route::post('/search/facilities', 'SearchController@search');
 
+Route::post('/activities/create', 'ActivityController@create'); 
+
+Route::get('/view/activities', 'ActivityController@dashboard');
+
+Route::get('/activities/','ActivityController@getList');
+
+Route::post('/activities/update/{id}','ActivityController@update');
+
+Route::get('/activities/details/{id}', 'ActivityController@details');
+
+Route::get('/activities/complete/{id}', 'ActivityController@complete');
+
+Route::get('/users/list', 'DataController@users');
+
 
 
 Auth::routes();

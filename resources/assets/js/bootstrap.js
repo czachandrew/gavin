@@ -18,6 +18,8 @@ require('bootstrap-sass');
  */
 
 window.Vue = require('vue');
+window.Vuikit = require('vuikit');
+window.Datepicker = require('vuejs-datepicker');
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests

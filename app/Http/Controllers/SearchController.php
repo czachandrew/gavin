@@ -5,18 +5,21 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Infocode;
 use App\Facility;
+use Auth;
 
 class SearchController extends Controller
 {
      public function __construct(){
-
+        $this->middleware('auth'); 
      }
 
      public function index(){
     	$codes = Infocode::all(); 
     	$results = [];
+        $user = Auth::user();
 
-    	return view('search',compact('codes','results')); 
+
+    	return view('search',compact('codes','results','user')); 
 
     }
 

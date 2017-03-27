@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Facility;
+use Auth; 
 
 class FacilityController extends Controller
 {
@@ -16,7 +17,8 @@ class FacilityController extends Controller
     }
 
     public function createForm(){
-    	return view('make');
+    	$user = Auth::user();
+    	return view('make', compact('user'));
     }
 
     public function create(Request $request){

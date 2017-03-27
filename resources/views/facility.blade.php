@@ -53,9 +53,8 @@
 						<!-- Show me the button to create a contact here --> 
 						<button type="button" @click="showModal" class="btn btn-default btn-primary">Add a Contact Person</button>
 						@endif
-
-
-
+						
+						<button type="button" @click="showActivity" class="btn btn-default btn-success">Create Follow up</button>
 				</div>
 
 			</div>
@@ -64,7 +63,7 @@
 	</div>
 </div>
 <div class="row">
-	<div class="col-md-8 col-md-offset-2">
+	<div class="col-md-6 col-md-offset-1">
 		
 				<h3>Notes:</h3>
 			
@@ -89,6 +88,24 @@
 
 		
 	</div>
+	<div class="col-md-4">
+		<h3>Activities:</h3>
+		@if($activities)
+							<ul class="list-group">
+							@foreach($activities as $activity)
+							
+								<li class="list-group-item">
+								<div class="row">
+								<div class="col-md-10">{{$activity->title}} <br> Due: {{Carbon\Carbon::parse($activity->due_date)->format('M-d-Y')}} Responsible: {{$activity->assigned->name}}</div><div class="col-md-2"><button class="btn btn-default" @click="completeActivity({{$activity}}, {{Auth::user()}})"><span class="glyphicon glyphicon-check"></span></button></div></div></li>
+
+							@endforeach
+							</ul>
+		@else
+		<p>You have no activities scheduled for this facility</p>
+						@endif	
+
+
+	</div>
 </div>
 <modal title="Add a contact person">
 <form action="{{$facility->id}}/addContact" method="post">
@@ -111,6 +128,10 @@
 </form>
 
 </modal>
+<activity-modal title="Create Activity">
+	<activity-form action="create" id="" user_id="{{$user->id}}" facility_id="{{$facility->id}}"></activity-form>
+
+</activity-modal>
 <div class="modal fade" id="contactPersonModal" tabindex="-1" role="dialog" aria-labelledby="contactPersonModalLabel">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">

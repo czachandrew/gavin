@@ -46,6 +46,7 @@
                         <li><a href="{{url('/possible')}}">Possible Match</a></li>
                         <li><a href="{{url('/search/facilities')}}">Search Facilities</a></li>
                         <li><a href="{{url('/new/facility')}}">Add Facility</a></li>
+                        <li><a href="{{url('/view/activities')}}">Activities ({{count($user->assigned_activities->where('status','open'))}})</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

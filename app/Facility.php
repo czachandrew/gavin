@@ -20,4 +20,8 @@ class Facility extends Model
     public function calls(){
     	return $this->hasMany('App\Call');
     }
+
+    public function activities(){
+        return $this->hasMany('App\Activity');
+    }
 }

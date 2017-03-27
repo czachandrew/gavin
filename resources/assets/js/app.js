@@ -16,16 +16,37 @@ require('./bootstrap');
 Vue.component('example', require('./components/Example.vue'));
 Vue.component('modal', require('./components/Modal.vue'));
 Vue.component('notepad', require('./components/Notepad.vue'));
+Vue.component('activity-form', require('./components/ActivityForm.vue'));
+Vue.component ('activity-modal', require('./components/ActivityModal.vue'));
+//w
 
 const app = new Vue({
     el: '#app',
     data: {
-    	modalIsOpen:false
+    	modalIsOpen:false,
+        activityIsOpen:false
     },
     methods: {
     	 showModal(){
     		this.modalIsOpen = true;
-    	}
+    	},
+        showActivity(){
+            this.activityIsOpen = true;
+        },
+        completeActivity(activity, user){
+            //alert('Close!');
+            if(activity.assigned_id == user.id){
+                axios.get('/activities/complete/' + activity.id).then(function(response){
+                    console.log(response);
+                    location.reload();
+                });
+            } else {
+                alert('This task is not assigned to you');
+            }
+            console.log(activity);
+            console.log(user);
+            //a
+        }
     },
     mounted(){
     	console.log('Mounted');
