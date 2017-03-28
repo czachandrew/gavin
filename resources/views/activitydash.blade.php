@@ -27,7 +27,7 @@
 <h4>Complete</h4>
 <ul class="list-group">
 
-@foreach($created as $task)
+@foreach($completed as $task)
 <li class="list-group-item">
 	<p>{{$task->title}} - {{$task->facility->name}}</p>
 	<p>{{$task->content}} <br> Phone: {{$task->facility->phone}}</p>

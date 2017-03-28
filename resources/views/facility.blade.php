@@ -72,13 +72,13 @@
 				@foreach($notes as $note)
 				@if($note->call_id > 0 )
 					<div class="panel panel-success">
-						<div class="panel-heading">{{$note->created_at}}</div>
+						<div class="panel-heading">On {{$note->created_at}} {{$note->user->name}} called </div>
 						<div class="panel-body"><p>{{$note->body}}</p></div>
 					</div>
 
 				@else
 					<div class="panel panel-default">
-						<div class="panel-heading">{{$note->created_at}}</div>
+						<div class="panel-heading">On {{$note->created_at}} {{$note->user->name}} said...</div>
 						<div class="panel-body"><p>{{$note->body}}</p></div>
 					</div>
 

@@ -58,7 +58,7 @@ class ActivityController extends Controller
     public function dashboard(){
     	$user = Auth::user(); 
     	$assigned = Activity::where('assigned_id', $user->id)->where('status','open')->with('facility')->get(); 
-    	$created = Activity::where('creator_id', $user->id)->where('status','open')->get(); 
+    	$created = Activity::where('creator_id', $user->id)->get(); 
     	$completed = Activity::where('assigned_id', $user->id)->orWhere('creator_id', $user->id)->where('status','complete')->get();
 
     	return view('activitydash', compact('user','assigned','created','completed'));

@@ -82,7 +82,7 @@ class PagesController extends Controller
 
 
     	
-    	$notes = Note::where('facility_id', $id)->orderBy('created_at', 'desc')->get();
+    	$notes = Note::with('user')->where('facility_id', $id)->orderBy('created_at', 'desc')->get();
 
     	$contact = $facility->contact;
 
@@ -102,10 +102,14 @@ class PagesController extends Controller
 
     public function addNote($id, Request $request){
     	$post = $request->only('body');
+
+        $user = Auth::user();
     	//print_r($post);
     	//Log::info($post);
     	//check and make sure the note hasn't already been created 
     	$check = Note::where('body', $post['body'])->first(); 
+
+         $activities = Activity::with('assigned')->where('facility_id', $id)->where('status', 'open')->get();
 
     	if(!$check){
     		$note = Note::create(['user_id' => 1, 'facility_id' => $id, 'body' => $post['body']]);
@@ -121,7 +125,7 @@ class PagesController extends Controller
 
     	$notes = Note::where('facility_id', $id)->orderBy('created_at','desc')->get();
 
-    	return view('facility', compact('facility','notes','contact')); 
+    	return view('facility', compact('facility','notes','contact', 'activities', 'user')); 
 
     }
 
