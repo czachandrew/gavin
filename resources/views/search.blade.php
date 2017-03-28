@@ -36,7 +36,7 @@
 				<div class="col-md-12">
 				<ul class="list-group">
 				@foreach($results as $item)
-					<li class="list-group-item"><span style="font-weight:bold;">{{$item->name}}</span> <span>{{$item->city}}</span>, {{$item->state}} <button class="pull-right btn btn-xs btn-primary">Add to List</button></li>
+					<li class="list-group-item"><a href="{{'/facility/' . $item->id}}"><span style="font-weight:bold;">{{$item->name}}</span></a> <span>{{$item->city}}</span>, {{$item->state}} <button class="pull-right btn btn-xs btn-primary">Add to List</button></li>
 				@endforeach
 				</ul>
 				</div>

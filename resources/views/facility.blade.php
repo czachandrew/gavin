@@ -12,6 +12,7 @@
 			</div>
 			<div class="panel-body">
 				<div class="col-md-8">
+				<p>Website: <a target="_blank" href="{{$facility->link}}">{{$facility->link}}</a></p>
 				
 					<form action="" method="POST" accept-charset="UTF-8">
 						<div class="form-group">

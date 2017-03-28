@@ -27,7 +27,15 @@ class SearchController extends Controller
 
     	$items = $request->all(); 
 
-    	$filters = $items['filter'];
+        $name = $items['text'];
+
+        if(array_key_exists('filter', $items)){
+            $filters = $items['filter'];
+        } else {
+            $filters = [];
+        }
+
+    	
 
     	$codes = Infocode::all();
 
