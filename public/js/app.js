@@ -48155,7 +48155,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       attrs: {
         "href": facility.link
       }
-    }, [_vm._v("Website")])]), _vm._v(" "), (facility.calls.length == 0) ? _c('p', {
+    }, [_vm._v("Website")])]), _vm._v(" "), (facility.calls) ? _c('p', {
       staticStyle: {
         "font-weight": "bold"
       }
