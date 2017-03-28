@@ -19,6 +19,7 @@
 					</ul>
 					<div class="tab-content">
 						<div role="tabpanel" class="tab-pane active" id="assigned">
+						<h4>Tasks that have been assigned to you - </h4>
 							<div class="col-md-6">
 							<h4>Active</h4>
 								<ul class="list-group">
@@ -50,7 +51,7 @@
 
 							</div>
 							<div role="tabpanel" class="tab-pane" id="created">
-							
+							<h4>Tasks that you have created - </h4> 
 							<!-- active assigned tasks --> 
 							<div class="col-md-6">
 							<h4>Active</h4>
