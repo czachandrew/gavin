@@ -18,6 +18,8 @@ Vue.component('modal', require('./components/Modal.vue'));
 Vue.component('notepad', require('./components/Notepad.vue'));
 Vue.component('activity-form', require('./components/ActivityForm.vue'));
 Vue.component ('activity-modal', require('./components/ActivityModal.vue'));
+Vue.component('main-dash', require('./components/Maindash.vue'));
+
 //w
 
 const app = new Vue({

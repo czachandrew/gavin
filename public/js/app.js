@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "./";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 170);
+/******/ 	return __webpack_require__(__webpack_require__.s = 173);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -1899,7 +1899,7 @@ function loadLocale(name) {
             module && module.exports) {
         try {
             oldLocale = globalLocale._abbr;
-            __webpack_require__(157)("./" + name);
+            __webpack_require__(158)("./" + name);
             // because defineLocale currently also sets the global locale, we
             // want to undo that for lazy loaded locales
             getSetGlobalLocale(oldLocale);
@@ -26861,7 +26861,7 @@ module.exports = function(module) {
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-__webpack_require__(154);
+__webpack_require__(155);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -26869,11 +26869,13 @@ __webpack_require__(154);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example', __webpack_require__(160));
-Vue.component('modal', __webpack_require__(161));
-Vue.component('notepad', __webpack_require__(162));
-Vue.component('activity-form', __webpack_require__(158));
-Vue.component('activity-modal', __webpack_require__(159));
+Vue.component('example', __webpack_require__(161));
+Vue.component('modal', __webpack_require__(163));
+Vue.component('notepad', __webpack_require__(164));
+Vue.component('activity-form', __webpack_require__(159));
+Vue.component('activity-modal', __webpack_require__(160));
+Vue.component('main-dash', __webpack_require__(162));
+
 //w
 
 var app = new Vue({
@@ -27960,6 +27962,79 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	props: ['facilities'],
+	data: function data() {
+		return {
+			term: ''
+		};
+	},
+	methods: {
+		filter: function filter(facilities) {
+			var self = this;
+			return facilities.filter(function (facility) {
+				//console.log(facility);
+				return facility.name.indexOf(self.term) !== -1 || facility.city.indexOf(self.term) !== -1 || facility.state.indexOf(self.term) !== -1;
+			});
+		}
+	},
+	mounted: function mounted() {
+		console.log(this.facilities);
+	}
+});
+
+/***/ }),
+/* 153 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	props: ['title'],
@@ -27978,7 +28053,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 153 */
+/* 154 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -28028,11 +28103,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 154 */
+/* 155 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-window._ = __webpack_require__(156);
+window._ = __webpack_require__(157);
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -28042,7 +28117,7 @@ window._ = __webpack_require__(156);
 
 window.$ = window.jQuery = __webpack_require__(10);
 
-__webpack_require__(155);
+__webpack_require__(156);
 
 /**
  * Vue is a modern JavaScript library for building interactive web interfaces
@@ -28050,8 +28125,8 @@ __webpack_require__(155);
  * and simple, leaving you to focus on building your next great project.
  */
 
-window.Vue = __webpack_require__(168);
-window.Vuikit = __webpack_require__(169);
+window.Vue = __webpack_require__(171);
+window.Vuikit = __webpack_require__(172);
 window.Datepicker = __webpack_require__(126);
 
 /**
@@ -28081,7 +28156,7 @@ window.axios.defaults.headers.common = {
 // });
 
 /***/ }),
-/* 155 */
+/* 156 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(jQuery) {/*!
@@ -30465,7 +30540,7 @@ if (typeof jQuery === 'undefined') {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)))
 
 /***/ }),
-/* 156 */
+/* 157 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -47557,7 +47632,7 @@ if (typeof jQuery === 'undefined') {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(127), __webpack_require__(128)(module)))
 
 /***/ }),
-/* 157 */
+/* 158 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
@@ -47806,17 +47881,17 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 157;
+webpackContext.id = 158;
 
 /***/ }),
-/* 158 */
+/* 159 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(2)(
   /* script */
   __webpack_require__(149),
   /* template */
-  __webpack_require__(167),
+  __webpack_require__(170),
   /* scopeId */
   null,
   /* cssModules */
@@ -47843,14 +47918,14 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 159 */
+/* 160 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(2)(
   /* script */
   __webpack_require__(150),
   /* template */
-  __webpack_require__(165),
+  __webpack_require__(168),
   /* scopeId */
   null,
   /* cssModules */
@@ -47877,14 +47952,14 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 160 */
+/* 161 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(2)(
   /* script */
   __webpack_require__(151),
   /* template */
-  __webpack_require__(163),
+  __webpack_require__(165),
   /* scopeId */
   null,
   /* cssModules */
@@ -47911,7 +47986,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 161 */
+/* 162 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(2)(
@@ -47919,6 +47994,40 @@ var Component = __webpack_require__(2)(
   __webpack_require__(152),
   /* template */
   __webpack_require__(166),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "/Users/andrewczachowski/Dev Projects/autism/resources/assets/js/components/Maindash.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] Maindash.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-2f69833c", Component.options)
+  } else {
+    hotAPI.reload("data-v-2f69833c", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 163 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(2)(
+  /* script */
+  __webpack_require__(153),
+  /* template */
+  __webpack_require__(169),
   /* scopeId */
   null,
   /* cssModules */
@@ -47945,14 +48054,14 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 162 */
+/* 164 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(153),
+  __webpack_require__(154),
   /* template */
-  __webpack_require__(164),
+  __webpack_require__(167),
   /* scopeId */
   null,
   /* cssModules */
@@ -47979,7 +48088,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 163 */
+/* 165 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -48008,7 +48117,73 @@ if (false) {
 }
 
 /***/ }),
-/* 164 */
+/* 166 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('div', {
+    staticClass: "form-group"
+  }, [_c('label', {
+    attrs: {
+      "for": "term"
+    }
+  }, [_vm._v("Filter the table")]), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.term),
+      expression: "term"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "type": "text"
+    },
+    domProps: {
+      "value": (_vm.term)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.term = $event.target.value
+      }
+    }
+  })]), _vm._v(" "), _c('table', {
+    staticClass: "table table-bordered"
+  }, [_vm._m(0), _vm._v(" "), _c('tbody', _vm._l((_vm.filter(_vm.facilities)), function(facility) {
+    return _c('tr', [_c('td', [_c('p', [_vm._v(_vm._s(facility.name))]), _c('p', [_c('a', {
+      attrs: {
+        "href": facility.link
+      }
+    }, [_vm._v("Website")])]), _vm._v(" "), (facility.calls.length == 0) ? _c('p', {
+      staticStyle: {
+        "font-weight": "bold"
+      }
+    }, [_vm._v("Not Contacted")]) : _vm._e()]), _vm._v(" "), _c('td', [_vm._v(_vm._s(facility.city))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(facility.state))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(facility.phone))]), _vm._v(" "), _c('td', [(facility.contact) ? _c('span', [_vm._v("\n                                        " + _vm._s(facility.contact.name)), _c('br'), _vm._v(" \n                                        " + _vm._s(facility.contact.phone) + "\n                                    ")]) : _vm._e()]), _vm._v(" "), _c('td', [_c('p', [_c('a', {
+      staticClass: "btn btn-sm btn-primary",
+      attrs: {
+        "type": "button",
+        "href": '/facility/' + facility.id + '/call'
+      }
+    }, [_vm._v("Contact")]), _vm._v(" "), _c('a', {
+      staticClass: "btn btn-success btn-sm",
+      attrs: {
+        "href": /facility/ + facility.id
+      }
+    }, [_vm._v("View")])])])])
+  }))])])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('thead', [_c('th', [_vm._v("Name")]), _vm._v(" "), _c('th', [_vm._v("City")]), _vm._v(" "), _c('th', [_vm._v("State")]), _vm._v(" "), _c('th', [_vm._v("Phone")]), _vm._v(" "), _c('th', [_vm._v("Contact Person")]), _vm._v(" "), _c('th')])
+}]}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-2f69833c", module.exports)
+  }
+}
+
+/***/ }),
+/* 167 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -48059,7 +48234,7 @@ if (false) {
 }
 
 /***/ }),
-/* 165 */
+/* 168 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -48125,7 +48300,7 @@ if (false) {
 }
 
 /***/ }),
-/* 166 */
+/* 169 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -48191,7 +48366,7 @@ if (false) {
 }
 
 /***/ }),
-/* 167 */
+/* 170 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -48373,7 +48548,7 @@ if (false) {
 }
 
 /***/ }),
-/* 168 */
+/* 171 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -57689,7 +57864,7 @@ module.exports = Vue$3;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(127)))
 
 /***/ }),
-/* 169 */
+/* 172 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
@@ -65026,7 +65201,7 @@ module.exports =
 /******/ ]);
 
 /***/ }),
-/* 170 */
+/* 173 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(129);
