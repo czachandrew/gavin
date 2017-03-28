@@ -2,7 +2,7 @@
 <div>
 <div class="form-group">
 <label for="term">Filter the table</label>
-<input type="text" class="form-control" v-model="term" />
+<input type="text" class="form-control" v-model="term" placeholder="Enter a filter term" />
 </div>
 <table class="table table-bordered">
 

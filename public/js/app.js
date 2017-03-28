@@ -48136,7 +48136,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }],
     staticClass: "form-control",
     attrs: {
-      "type": "text"
+      "type": "text",
+      "placeholder": "Enter a filter term"
     },
     domProps: {
       "value": (_vm.term)
