@@ -20,7 +20,7 @@
                             <tr v-for="facility in filter(facilities)">
                                 <td><p>{{facility.name}}</p><p><a :href="facility.link">Website</a></p>
                                
-                                    <p v-if="facility.calls" style="font-weight:bold;">Not Contacted</p>
+                                    <p v-if="!facility.calls || facility.calls.length === 0" style="font-weight:bold;">Not Contacted</p>
                                    
                                 </td>
                                 <td>{{facility.city}}</td>

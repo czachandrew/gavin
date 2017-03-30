@@ -31,6 +31,11 @@ class FacilityController extends Controller
 
     }
 
+    public function details($id){
+    	$facility = Facility::with(['notes','activities.assigned','contact'])->find($id);
+    	return $facility;
+    }
+
     public function update(){
     	
     }

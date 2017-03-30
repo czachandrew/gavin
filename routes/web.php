@@ -23,6 +23,8 @@ Route::get('/new/facility', 'FacilityController@createForm');
 
 Route::post('/new/facility', 'FacilityController@create');
 
+Route::get('facility/details/{id}', 'FacilityController@details');
+
 Route::post('/notepad/update/{id}','NotepadController@update');
 
 Route::get('/possible', 'PagesController@possible');

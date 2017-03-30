@@ -26875,6 +26875,7 @@ Vue.component('notepad', __webpack_require__(164));
 Vue.component('activity-form', __webpack_require__(159));
 Vue.component('activity-modal', __webpack_require__(160));
 Vue.component('main-dash', __webpack_require__(162));
+Vue.component('facility-view', __webpack_require__(183));
 
 //w
 
@@ -48155,7 +48156,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       attrs: {
         "href": facility.link
       }
-    }, [_vm._v("Website")])]), _vm._v(" "), (facility.calls) ? _c('p', {
+    }, [_vm._v("Website")])]), _vm._v(" "), (!facility.calls || facility.calls.length === 0) ? _c('p', {
       staticStyle: {
         "font-weight": "bold"
       }
@@ -65208,6 +65209,480 @@ module.exports =
 __webpack_require__(129);
 module.exports = __webpack_require__(130);
 
+
+/***/ }),
+/* 174 */,
+/* 175 */,
+/* 176 */,
+/* 177 */,
+/* 178 */,
+/* 179 */,
+/* 180 */,
+/* 181 */,
+/* 182 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	props: ['id'],
+	data: function data() {
+		return {
+			facility: {},
+			user: {}
+		};
+	},
+	methods: {
+		addContact: function addContact() {},
+		markIt: function markIt() {},
+		addNote: function addNote() {}
+
+	},
+	mounted: function mounted() {
+		//get facility 
+		var self = this;
+		axios.get('/facility/details/' + this.id).then(function (response) {
+			console.log(response.data);
+
+			self.facility = response.data;
+		});
+		//get current user 
+	}
+});
+
+/***/ }),
+/* 183 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(2)(
+  /* script */
+  __webpack_require__(182),
+  /* template */
+  __webpack_require__(184),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "/Users/andrewczachowski/Dev Projects/autism/resources/assets/js/components/FacilityView.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] FacilityView.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-3deeb37f", Component.options)
+  } else {
+    hotAPI.reload("data-v-3deeb37f", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 184 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('div', {
+    staticClass: "panel panel-default"
+  }, [_c('div', {
+    staticClass: "panel-heading"
+  }, [_c('h1', [_vm._v(_vm._s(_vm.facility.name) + " - " + _vm._s(_vm.facility.phone) + "\n\n\t\t\t\t\t"), (_vm.facility.possible !== '') ? _c('span', {
+    staticClass: "pull-right"
+  }, [_vm._v("Possibility: " + _vm._s(_vm.facility.possible))]) : _vm._e()])]), _vm._v(" "), _c('div', {
+    staticClass: "panel-body"
+  }, [_c('div', {
+    staticClass: "col-md-8"
+  }, [_c('p', [_vm._v("Website: "), _c('a', {
+    attrs: {
+      "target": "_blank",
+      "href": _vm.facility.link
+    }
+  }, [_vm._v(_vm._s(_vm.facility.link))])]), _vm._v(" "), _c('form', {
+    attrs: {
+      "action": "",
+      "method": "POST",
+      "accept-charset": "UTF-8"
+    },
+    on: {
+      "submit": function($event) {
+        $event.preventDefault();
+        _vm.addNote()
+      }
+    }
+  }, [_c('div', {
+    staticClass: "form-group"
+  }, [_c('label', {
+    attrs: {
+      "for": "notes"
+    }
+  }, [_vm._v("Add a Note:")]), _vm._v(" "), _c('textarea', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.newNote),
+      expression: "newNote"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "id": "body",
+      "name": "body",
+      "rows": "5"
+    },
+    domProps: {
+      "value": (_vm.newNote)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.newNote = $event.target.value
+      }
+    }
+  })]), _vm._v(" "), _vm._m(0)]), _vm._v(" "), _c('form', {
+    attrs: {
+      "action": "'markit/' . facility.id",
+      "method": "POST"
+    },
+    on: {
+      "submit": function($event) {
+        $event.preventDefault();
+        _vm.markIt()
+      }
+    }
+  }, [_c('div', {
+    staticClass: "form-group"
+  }, [_c('label', {
+    attrs: {
+      "for": "match"
+    }
+  }, [_vm._v("Could this be a potential match?")]), _vm._v("\n\t\t\t\t\t\t\t" + _vm._s(_vm.csrf_field()) + "\n\t\t\t\t\t\t\t"), _c('button', {
+    staticClass: "btn btn-default btn-primary",
+    attrs: {
+      "type": "submit",
+      "name": "potential",
+      "value": "yes"
+    }
+  }, [_vm._v("Yes")]), _vm._v(" "), _c('button', {
+    staticClass: "btn btn-default btn-danger",
+    attrs: {
+      "type": "submit",
+      "name": "potential",
+      "value": "no"
+    }
+  }, [_vm._v("No")]), _vm._v(" "), _c('button', {
+    staticClass: "btn btn-default btn-warning",
+    attrs: {
+      "type": "submit",
+      "name": "potential",
+      "value": "maybe"
+    }
+  }, [_vm._v("Maybe")])])])]), _vm._v(" "), _c('div', {
+    staticClass: "col-md-3 col-md-offset-1"
+  }, [_c('p', [_c('span', {
+    staticStyle: {
+      "font-weight": "bold"
+    }
+  }, [_vm._v("Phone:")]), _c('br'), _vm._v(" " + _vm._s(_vm.facility.phone) + " ")]), _vm._v(" "), _c('p', [_c('span', {
+    staticStyle: {
+      "font-weight": "bold"
+    }
+  }, [_vm._v("Address:")]), _c('br'), _vm._v(" " + _vm._s(_vm.facility.address)), _c('br'), _vm._v(_vm._s(_vm.facility.city) + ", " + _vm._s(_vm.facility.state))]), _vm._v(" "), (_vm.facility.contact && _vm.facility.contact !== '') ? _c('p', [_c('span', {
+    staticStyle: {
+      "font-weight": "bold"
+    }
+  }, [_vm._v("Contact Person:")]), _c('br'), _vm._v(" " + _vm._s(_vm.facility.contact.name)), _c('br'), _vm._v(" "), (_vm.facility.contact.email) ? _c('a', {
+    attrs: {
+      "href": 'mailto:' + _vm.facility.contact.email
+    }
+  }, [_vm._v(_vm._s(_vm.facility.contact.email) + " ")]) : _vm._e(), _c('br'), _vm._v(" "), (_vm.facility.contact.phone && _vm.facility.contact.phone !== '') ? _c('span', [_vm._v(_vm._s(_vm.facility.contact.phone))]) : _vm._e()]) : _c('button', {
+    staticClass: "btn btn-default btn-primary",
+    attrs: {
+      "type": "button"
+    },
+    on: {
+      "click": _vm.$root.showModal
+    }
+  }, [_vm._v("Add a Contact Person")]), _vm._v(" "), _c('button', {
+    staticClass: "btn btn-default btn-success",
+    attrs: {
+      "type": "button"
+    },
+    on: {
+      "click": _vm.$root.showActivity
+    }
+  }, [_vm._v("Create Follow up")])])])]), _vm._v(" "), _c('div', {
+    staticClass: "row"
+  }, [_c('div', {
+    staticClass: "col-md-6 col-md-offset-1"
+  }, [_c('h3', [_vm._v("Notes:")]), _vm._v(" "), (_vm.facility.notes !== '') ? _c('div', _vm._l((_vm.facility.notes), function(note) {
+    return _c('div', [(note.call_id > 0) ? _c('div', {
+      staticClass: "panel panel-success"
+    }, [_c('div', {
+      staticClass: "panel-heading"
+    }, [_vm._v("On " + _vm._s(note.created_at) + " " + _vm._s(note.user.name) + " called ")]), _vm._v(" "), _c('div', {
+      staticClass: "panel-body"
+    }, [_c('p', [_vm._v(_vm._s(note.body))])])]) : _c('div', {
+      staticClass: "panel panel-default"
+    }, [_c('div', {
+      staticClass: "panel-heading"
+    }, [_vm._v("On " + _vm._s(note.created_at) + " " + _vm._s(note.user.name) + " said...")]), _vm._v(" "), _c('div', {
+      staticClass: "panel-body"
+    }, [_c('p', [_vm._v(_vm._s(note.body))])])])])
+  })) : _vm._e()]), _vm._v(" "), _c('div', {
+    staticClass: "col-md-4"
+  }, [_c('h3', [_vm._v("Activities:")]), _vm._v(" "), (_vm.facility.activities && _vm.facility.activities !== '') ? _c('ul', {
+    staticClass: "list-group"
+  }, _vm._l((_vm.facility.activity), function(activity) {
+    return _c('li', {
+      staticClass: "list-group-item"
+    }, [_c('div', {
+      staticClass: "row"
+    }, [_c('div', {
+      staticClass: "col-md-10"
+    }, [_vm._v(_vm._s(activity.title) + " "), _c('br'), _vm._v(" Due: " + _vm._s(activity.due_date) + " Responsible: " + _vm._s(activity.assigned.name))]), _c('div', {
+      staticClass: "col-md-2"
+    }, [_c('button', {
+      staticClass: "btn btn-default",
+      on: {
+        "click": function($event) {
+          _vm.completeActivity(activity)
+        }
+      }
+    }, [_c('span', {
+      staticClass: "glyphicon glyphicon-check"
+    })])])])])
+  })) : _c('p', [_vm._v("You have no activities scheduled for this facility")])])]), _vm._v(" "), _c('modal', {
+    attrs: {
+      "title": "Add a contact person"
+    }
+  }, [_c('form', {
+    attrs: {
+      "action": _vm.facility.id + '/addContact',
+      "method": "post"
+    },
+    on: {
+      "submit": function($event) {
+        $event.preventDefault();
+        _vm.addContact()
+      }
+    }
+  }, [_c('div', {
+    staticClass: "form-group"
+  }, [_c('label', {
+    attrs: {
+      "for": "name"
+    }
+  }, [_vm._v("Full Name")]), _vm._v(" "), _c('input', {
+    staticClass: "form-control",
+    attrs: {
+      "type": "text",
+      "id": "name",
+      "name": "name"
+    }
+  })]), _vm._v(" "), _c('div', {
+    staticClass: "form-group"
+  }, [_c('label', {
+    attrs: {
+      "for": "phone"
+    }
+  }, [_vm._v("Phone")]), _vm._v(" "), _c('input', {
+    staticClass: "form-control",
+    attrs: {
+      "type": "text",
+      "id": "phone",
+      "name": "phone"
+    }
+  })]), _vm._v(" "), _c('div', {
+    staticClass: "form-group"
+  }, [_c('label', {
+    attrs: {
+      "for": "email"
+    }
+  }, [_vm._v("Email")]), _vm._v(" "), _c('input', {
+    staticClass: "form-control",
+    attrs: {
+      "type": "text",
+      "id": "email",
+      "name": "email"
+    }
+  })]), _vm._v(" "), _c('div', {
+    staticClass: "form-group pull-right"
+  }, [_c('button', {
+    staticClass: "btn btn-default btn-primary",
+    attrs: {
+      "type": "submit"
+    }
+  }, [_vm._v("Create Contact")])])])]), _vm._v(" "), _c('activity-modal', {
+    attrs: {
+      "title": "Create Activity"
+    }
+  }, [_c('activity-form', {
+    attrs: {
+      "action": "create",
+      "id": "",
+      "user_id": _vm.user.id,
+      "facility_id": _vm.facility.id
+    }
+  })], 1)], 1)
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "form-group"
+  }, [_c('div', {}, [_c('button', {
+    staticClass: "btn btn-default btn-success",
+    attrs: {
+      "type": "submit"
+    }
+  }, [_vm._v("Add Note")])])])
+}]}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-3deeb37f", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

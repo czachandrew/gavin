@@ -2,6 +2,7 @@
 @section('content')
 <div class="row">
 	<div class="col-md-10 col-md-offset-1">
+	<!-- <facility-view id="insert facility id here "></facility-view> -->
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<h1>{{$facility->name}} - {{$facility->phone}}

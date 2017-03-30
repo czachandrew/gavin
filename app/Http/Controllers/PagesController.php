@@ -112,7 +112,7 @@ class PagesController extends Controller
          $activities = Activity::with('assigned')->where('facility_id', $id)->where('status', 'open')->get();
 
     	if(!$check){
-    		$note = Note::create(['user_id' => 1, 'facility_id' => $id, 'body' => $post['body']]);
+    		$note = Note::create(['user_id' => $user->id, 'facility_id' => $id, 'body' => $post['body']]);
     	} else {
     		//do nothing
     	}
