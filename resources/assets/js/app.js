@@ -49,6 +49,11 @@ const app = new Vue({
             console.log(activity);
             console.log(user);
             //a
+        },
+        sendEmail(){
+            axios.get('/email/send').then(function(response){
+                console.log(response);
+            });
         }
     },
     mounted(){

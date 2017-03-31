@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth; 
 use App\Activity; 
+use App\Mail\ActivityAssigned; 
 
 class ActivityController extends Controller
 {
@@ -20,7 +21,12 @@ class ActivityController extends Controller
     	$data['activity']['assigned_type'] = 'user';
 
 
-    	Activity::create($data['activity']);
+    	$activity = Activity::create($data['activity']);
+    	$activity->load('creator','assigned','facility');
+
+    	\Mail::to($activity->assigned->email)->send(new ActivityAssigned($activity));
+
+    	//notify the assigned user
     	return ['message' => 'success'];
     }
 

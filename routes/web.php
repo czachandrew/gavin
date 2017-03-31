@@ -57,6 +57,8 @@ Route::get('/activities/complete/{id}', 'ActivityController@complete');
 
 Route::get('/users/list', 'DataController@users');
 
+Route::get('/email/send', 'EmailController@send');
+
 
 
 Auth::routes();

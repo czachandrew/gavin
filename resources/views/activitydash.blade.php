@@ -8,6 +8,7 @@
 				<h3>Activities</h3>
 			</div>
 			<div class="panel-body">
+			<button class="btn btn-success" @click="sendEmail()">Email Test</button>
 				
 
 				<div>
